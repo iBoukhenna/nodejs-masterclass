@@ -1,6 +1,6 @@
 const EventEmitter = require('events')
 let myListner = new EventEmitter()
-myListner.on('jump', function (a, b) {
+myListner.once('jump', function (a, b) {
     console.log('I jumped', a, b)
 })
 
