@@ -1,9 +1,12 @@
 let fs = require('fs')
 
-fs.readFile('demo.mp4', (err, data) => {
-    if (err) throw err
-    fs.writeFile('copy.mp4', data, (err) => {
-        if (err) throw err
-        console.log('the file was successfully copied')
-    })
+let file = 'demo.mp4';
+let read = fs.createReadStream(file)
+
+read.on('data', (chunk) => {
+    console.log('I read ' + chunk.length)
+})
+
+read.on('end', () => {
+    console.log('I finished read')
 })
