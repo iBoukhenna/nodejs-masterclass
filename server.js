@@ -20,18 +20,17 @@ app.use(session({
     cookie: {secure: false}
 }))
 
+app.use(require('./middlewares/flash'))
+
 // Routes
 app.get('/', function (request, response) {
-    if (request.session.error) {
-        response.locals.error = request.session.error
-        request.session.error = undefined
-    }
+    console.log(request.session)
     response.render('pages/index')
 })
 
 app.post('/', (request, response) => {
     if (request.body.message === undefined || request.body.message === '') {
-        request.session.error = 'the message is empty'
+        request.flash('error', 'the message is empty')
         response.redirect('/')
     }
 })
