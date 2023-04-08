@@ -33,6 +33,13 @@ class Message {
             callback(rows.map((row) => new Message(row)))
         })
     }
+
+    static find (id, callback) {
+        connection.query('SELECT * FROM messages where id = ?', [id], (err, rows) => {
+            if (err) throw err           
+            callback(new Message(rows[0]))
+        })
+    }
 }
 
 module.exports = Message

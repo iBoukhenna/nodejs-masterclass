@@ -43,4 +43,12 @@ app.post('/', (request, response) => {
     }
 })
 
+app.get('/message/:id', (request, response) => {
+    console.log(process.env.NODE_ENV);
+    let Message = require('./models/message')
+    Message.find(request.params.id, function (message) {
+        response.render('pages/show', {message: message})
+    })
+})
+
 app.listen(80)
