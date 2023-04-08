@@ -32,6 +32,12 @@ app.post('/', (request, response) => {
     if (request.body.message === undefined || request.body.message === '') {
         request.flash('error', 'the message is empty')
         response.redirect('/')
+    } else {
+        let Message = require('./models/message')
+        Message.create(request.body.message, function () {
+            request.flash('success', 'done')
+            response.redirect('/')
+        })
     }
 })
 
