@@ -1,8 +1,10 @@
 
 let app = require('express')()
 
+app.set('view engine', 'ejs')
+
 app.get('/', function (request, response) {
-    response.send('Hello')
+    response.render('pages/index', {test: 'Hello'})
 })
 
 app.listen(80)
