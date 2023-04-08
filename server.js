@@ -1,6 +1,6 @@
 
-let demo = require('./hello')
+let app = require('./app').start(80)
 
-demo.hello()
-
-demo.bye()
+app.on('root', function (response) {
+    response.write('I\'m in root')
+})
