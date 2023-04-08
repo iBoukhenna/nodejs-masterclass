@@ -1,4 +1,6 @@
 
 let demo = require('./hello')
 
-demo.funct()
+demo.hello()
+
+demo.bye()

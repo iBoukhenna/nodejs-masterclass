@@ -1,7 +1,7 @@
-let hello = function () {
+exports.hello = function () {
     console.log('Hello !')
 }
 
-module.exports = {
-    funct : hello
+exports.bye = function () {
+    console.log('Bye !')
 }
