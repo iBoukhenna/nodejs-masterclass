@@ -1,6 +1,6 @@
-let _ = require('lodash')
+let map = require('lodash/map')
 
-console.log(_.map([1, 2, 3], function(n) {
+console.log(map([1, 2, 3], function(n) {
     return n*3;
 }))
 
