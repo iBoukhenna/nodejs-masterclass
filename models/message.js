@@ -8,6 +8,13 @@ class Message {
             callback(result)
         })
     }
+
+    static all (callback) {
+        connection.query('SELECT * FROM messages', (err, rows) => {
+            if (err) throw err           
+            callback(rows)
+        })
+    }
 }
 
 module.exports = Message
