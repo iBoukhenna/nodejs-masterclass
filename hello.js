@@ -2,4 +2,6 @@ let hello = function () {
     console.log('Hello !')
 }
 
-module.exports = hello
+module.exports = {
+    funct : hello
+}
